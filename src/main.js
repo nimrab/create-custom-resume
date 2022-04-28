@@ -1,5 +1,10 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import '../../курсовая 2 исходники/theme.css'
+import mitt from 'mitt';
 
-createApp(App).mount('#app')
+const emitter = mitt();
+
+
+let app = createApp(App)
+app.config.globalProperties.emitter = emitter
+app.mount('#app')
